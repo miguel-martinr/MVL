@@ -21,6 +21,8 @@
 **********************************************************************/
 #pragma once
 
+#include "database.hpp"
+
 #include <string>
 #include <fstream>
 #include <cassert>
@@ -30,16 +32,18 @@ using namespace std;
 class user {
 
  public:
+   user(void): user_name_(), passwd_(), logged_(false) {}
    user(string user_name, string passwd);
    ~user(void) {}
 
-   static string dataBase_; //Nombre del fichero data base
-   int authenticate(void);
-   void what(void);
+   static database dataBase_; //Base de datos común
+   int login(void);
 
+   string getName(void) { return user_name_; }
 
  private:
     string user_name_;
     string passwd_; //ToDo: método de seguridad para que esté encriptada
     //Monedero | puntero?
+    bool logged_;
 };

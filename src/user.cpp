@@ -1,37 +1,25 @@
 #include "../include/user.hpp"
 
+database user::dataBase_;
+
 user::user(string user_name, string passwd) {
   assert(!user_name.empty() && !passwd.empty());
   user_name_ = user_name;
   passwd_ = passwd;
-  what();
+  logged_ = false;
 }
 
-int user::authenticate(void) {
-  ifstream dataFile(dataBase_, ios::in);
-  assert(dataFile.is_open() && "Error al conectar con base de datos...");
-  string nameAux, pswAux;
 
-  while ((nameAux != user_name_) && (!dataFile.eof())) {
-    dataFile >> nameAux >> pswAux;
-  }
-  if (dataFile.eof())
-    return 1; // Nombre de usuario no existe
-  if (pswAux != passwd_)
-    return 2; // Combinación incorrecta de usuario y contraseña
+int user::login(void) {
+  if (logged_)
+    return true;
+  int money;
+  if (dataBase_.authenticate(user_name_, passwd_, money)) 
+    logged_ = true;
+    //
+    //Actualizar monedero
+    //
 
-  return 0; // Autenticado
-}
 
-void user::what(void) {
-  switch (authenticate()) {
-    case 1:
-      assert(false && "Error: Nombre de usuario no existe");
-      break;
-    case 2:
-      assert(false && "Error: Combinación incorrecta de usuario y contraseña");
-      break;
-    default:
-      break;
-  }
+  return logged_;
 }
