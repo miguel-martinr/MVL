@@ -14,12 +14,12 @@ username password monedero
 
 
 Inicialización de la base de datos:
+  string datafile = "ruta del fichero de datos"
   user::dataBase_ = database(string datafile);
 
 
 Para hacer un login:
   database previamente inicializado.
-  string datafile = "ruta del fichero de datos"
   user userVar(string username, string password);
 
   if (userVar.login())
