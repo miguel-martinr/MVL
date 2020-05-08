@@ -32,7 +32,7 @@ uso:
 
 
 
-Para desarroladores:
+Para desarrolladores:
 
 
 Formato del data base:
