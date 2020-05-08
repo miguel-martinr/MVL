@@ -1,11 +1,12 @@
 /**********************************************************************
 * Project           : plataforma MVL (Moneda Virtual Local)
 *
-* Main
+* Main              : Prototipo rudimentario para simular el funcionamiento
+                      de la paltaforma de moneda virtual local.
 *
-* Author            : Miguel Alejandro Martín Reyes (miguel-martinr)
-* e-mail            : alu0101209777@ull.edu.es
-* github            : https://github.com/miguel-martinr
+* Author            : Edgar Negrín González
+* e-mail            :
+* github            :
 *
 * Date created      : 20200507
 *
@@ -16,7 +17,7 @@
 * Revision History  :
 *
 * Date        Author              Ref    Revision
-* 20200507    miguel-martinr      1      ...
+* 20200507    Edgar Negrín      1      ...
 *
 **********************************************************************/
 #include <iostream>
@@ -34,8 +35,9 @@ int menu1()
 {
   int opt;
   system("clear");
-  cout << "\tMENU PRINCIPAL" << endl << endl;
-  cout << "1.Iniciar secion" << endl;
+  cout << "                         Plataforma Moneda Virtual Local (MVL)\n\n";
+  cout << "\tMENÚ PRINCIPAL" << endl << endl;
+  cout << "1.Iniciar sesión" << endl;
   cout << "2.Registrarte" << endl;
   cout << "3.Salir" << endl;
 
@@ -73,10 +75,10 @@ int main()
 
   int opt1, opt2;
   string username, passwd;
-  bool log = false; // Comprobacion del login
+  int log = -1; // Comprobacion del login
   bool foo = false; // Comprobacion del registro
 
-  while(!log){
+  while(log != 0 && !foo){
     opt1 = menu1();
 
     switch(opt1){
@@ -90,7 +92,7 @@ int main()
 
         userOne = login(username, passwd);
         log = userOne.login();
-        if(log){
+        if(log == 0){
           cout << endl << "Inicio de sesión completado satisfactoriamente." << endl;
         }else{
           cout << "No se pudo iniciar sesión" << endl;
@@ -104,7 +106,7 @@ int main()
         cout << "Introduce la contraseña" << endl;
         cin >> passwd;
 
-        foo = user::dataBase_.signIn(username,passwd, 7.59);
+        foo = user::dataBase_.signIn(username,passwd, 0);
         if(foo){
           cout << "Registro completado satisfactoriamente." << endl;
         }else{
@@ -121,49 +123,13 @@ int main()
         break;
     }
   }
-  switch(opt1){
-    case 1:
-      system("clear");
-      cout << "\tIniciar Sesión" << endl;
-      cout << "Introduce el nombre de usuario" << endl;
-      cin >> username;
-      cout << "Introduce la contraseña" << endl;
-      cin >> passwd;
 
-      userOne = login(username, passwd);
-      log = userOne.login();
-      if(log){
-        cout << "Inicio de sesión completado satisfactoriamente." << endl;
-      }else{
-        cout << "No se pudo iniciar sesión" << endl;
-      }
-      break;
-
-    case 2:
-      cout << "\tRegistrarse" << endl;
-      cout << "Introduce el nombre de usuario" << endl;
-      cin >> username;
-      cout << "Introduce la contraseña" << endl;
-      cin >> passwd;
-
-      foo = user::dataBase_.signIn(username,passwd, 7.59);
-      if(foo){
-        cout << "Registro completado satisfactoriamente." << endl;
-      }else{
-        cout << "No se pudo realizar el registro" << endl;
-      }
-      break;
-
-    default:
-      cout << "La opcion introducida no está disponible." << endl;
-      break;
-  }
 
   bool salir = false;
 
   while(!salir){
     system("clear");
-    if (log){
+    if (log == 0){
       cout << endl << endl << userOne.getName() << endl;
       cout << "Saldo actual: " << userOne.coins() << endl;
       opt2 = menu2();
@@ -189,6 +155,9 @@ int main()
           cout << "La opción introducida no está disponible." << endl;
           break;
       }
+    } else if (foo) {
+      cout << "Registrado correctamente. Reinicie el sistema :(" << endl;
+      salir = true;
     }
   }
   return 0;

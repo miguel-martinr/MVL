@@ -1,3 +1,6 @@
+//Programa simple para testear
+//author: Miguel Martín (alu0101209777@ull.edu.es)
+
 #include "../../include/user.hpp"
 #include "../../include/database.hpp"
 

@@ -1,6 +1,40 @@
 # MVL
 Plataforma de moneda virtual (Simulador simple)
 
+
+Para usuarios:
+
+uso:
+
+  make
+  bin/main
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Para desarroladores:
+
+
 Formato del data base:
 
 
