@@ -22,10 +22,10 @@ Para hacer un login:
   database previamente inicializado.
   user userVar(string username, string password);
 
-  if (userVar.login())
-    Se ha loggeado correctamente
-    else
-    No se ha loggeado correctamente
+  códigos de retorno:
+   0.Login correcto
+   1.Usuario no encontrado
+   2.contraseña incorrecta
 
 
 Para registrar nuevo usuario:
@@ -41,4 +41,4 @@ Para registrar nuevo usuario:
 Notas:
   *No se aceptan nombres de usuario o contraseñas vacías
   *Hay que verificar que los movimientos de wallet retornen true, de otro modo
-   no se garantiza que se haya realizado el movimiento. 
+   no se garantiza que se haya realizado el movimiento.

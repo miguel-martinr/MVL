@@ -14,15 +14,20 @@ database::~database(void) {
 
 
 // Autentica un usuario
-bool database::authenticate(string name, string psw, float& money) {
+int database::authenticate(string name, string psw, float& money) {
   int i = 0;
   while ((sheet_[i].name != name) && (i < sheet_.size()))
     i++;
-  if (i < sheet_.size()) {
-    money = sheet_[i].money;
-    return true;
-  }
-  return false;
+
+  if (i == sheet_.size())
+    return 1; // Usuario no encontrado
+
+  if (psw != sheet_[i].psw)
+    return 2; //Contraseña incorrecta
+
+  money = sheet_[i].money;
+
+  return 0;
 }
 
 // Registra una nueva entrada (usuario) en la base de datos

@@ -14,11 +14,10 @@ int user::login(void) {
   if (logged_)
     return logged_;
   float money;
-  if (dataBase_.authenticate(user_name_, passwd_, money)) {
+  int id = dataBase_.authenticate(user_name_, passwd_, money);
+  if (id == 0)
     logged_ = true;
-    wallet_.update(money);
-  }
-  return logged_;
+  return id;
 }
 
 //Añadir monedas a wallet

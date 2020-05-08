@@ -51,8 +51,8 @@ class database {
    int store(string file_name);
 
    // Autentica un usuario
-   bool authenticate(string name, string psw, float& money);
-   
+   int authenticate(string name, string psw, float& money);
+
    // Registra una nueva entrada (usuario) en la base de datos
    bool signIn(string name, string psw, float money);
 
