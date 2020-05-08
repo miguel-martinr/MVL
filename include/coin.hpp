@@ -1,7 +1,7 @@
 /**********************************************************************
 * Project           : plataforma MVL (Moneda Virtual Local)
 *
-* Class             : database (base de datos simple)
+* Class             : coin (monedero)
 *
 * Author            : Miguel Alejandro Martín Reyes (miguel-martinr)
 * e-mail            : alu0101209777@ull.edu.es
