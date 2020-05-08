@@ -1,3 +1,24 @@
+/**********************************************************************
+* Project           : plataforma MVL (Moneda Virtual Local)
+*
+* Class             : database (base de datos simple)
+*
+* Author            : Miguel Alejandro Martín Reyes (miguel-martinr)
+* e-mail            : alu0101209777@ull.edu.es
+* github            : https://github.com/miguel-martinr
+*
+* Date created      : 20200507
+*
+* References  :
+*
+*
+*
+* Revision History  :
+*
+* Date        Author              Ref    Revision
+* 20200507    miguel-martinr      1      ...
+*
+**********************************************************************/
 #include "../include/database.hpp"
 
 #include <cassert>
