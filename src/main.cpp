@@ -38,9 +38,9 @@ int menu1()
   cout << "1.Iniciar secion" << endl;
   cout << "2.Registrarte" << endl;
   cout << "3.Salir" << endl;
-  
+
   cin >> opt;
-  
+
   return opt;
 }
 
@@ -53,9 +53,9 @@ int menu2()
   cout << "2.Añadir servicio al catalogo (No disponible)" << endl;
   cout << "3.Borrar servicio del catalogo (No disponible)" << endl;
   cout << "4.Salir" << endl;
-  
+
   cin >> opt;
-  
+
   return opt;
 }
 
@@ -82,18 +82,18 @@ int main()
     switch(opt1){
       case 1:
         system("clear");
-        cout << "\tIniciar Secion" << endl;
+        cout << "\tIniciar Sesión" << endl;
         cout << "Introduce el nombre de usuario" << endl;
         cin >> username;
         cout << "Introduce la contraseña" << endl;
         cin >> passwd;
-   
+
         userOne = login(username, passwd);
         log = userOne.login();
         if(log){
-          cout << endl << "Inicio de secion completado satisfactoriamente." << endl;
+          cout << endl << "Inicio de sesión completado satisfactoriamente." << endl;
         }else{
-          cout << "No se pudo iniciar secion" << endl;
+          cout << "No se pudo iniciar sesión" << endl;
         }
         break;
 
@@ -103,7 +103,7 @@ int main()
         cin >> username;
         cout << "Introduce la contraseña" << endl;
         cin >> passwd;
-      
+
         foo = user::dataBase_.signIn(username,passwd, 7.59);
         if(foo){
           cout << "Registro completado satisfactoriamente." << endl;
@@ -117,25 +117,25 @@ int main()
         break;
 
       default:
-        cout << "La opcion introducida no esta disponible." << endl;
+        cout << "La opción introducida no está disponible." << endl;
         break;
     }
   }
   switch(opt1){
     case 1:
       system("clear");
-      cout << "\tIniciar Secion" << endl;
+      cout << "\tIniciar Sesión" << endl;
       cout << "Introduce el nombre de usuario" << endl;
       cin >> username;
       cout << "Introduce la contraseña" << endl;
       cin >> passwd;
-   
+
       userOne = login(username, passwd);
       log = userOne.login();
       if(log){
-        cout << "Inicio de secion completado satisfactoriamente." << endl;
+        cout << "Inicio de sesión completado satisfactoriamente." << endl;
       }else{
-        cout << "No se pudo iniciar secion" << endl;
+        cout << "No se pudo iniciar sesión" << endl;
       }
       break;
 
@@ -145,7 +145,7 @@ int main()
       cin >> username;
       cout << "Introduce la contraseña" << endl;
       cin >> passwd;
-      
+
       foo = user::dataBase_.signIn(username,passwd, 7.59);
       if(foo){
         cout << "Registro completado satisfactoriamente." << endl;
@@ -155,10 +155,10 @@ int main()
       break;
 
     default:
-      cout << "La opcion introducida no esta disponible." << endl;
+      cout << "La opcion introducida no está disponible." << endl;
       break;
   }
-  
+
   bool salir = false;
 
   while(!salir){
@@ -170,23 +170,23 @@ int main()
 
       switch(opt2){
         case 1:
-          cout << "La opcion introducida no esta disponible." << endl;
+          cout << "La opción introducida no está disponible." << endl;
           break;
 
         case 2:
-          cout << "La opcion introducida no esta disponible." << endl;
+          cout << "La opción introducida no está disponible." << endl;
           break;
 
         case 3:
-          cout << "La opcion introducida no esta disponible." << endl;
+          cout << "La opción introducida no está disponible." << endl;
           break;
-      
+
         case 4:
           salir = true;
           break;
 
         default:
-          cout << "La opcion introducida no esta disponible." << endl;
+          cout << "La opción introducida no está disponible." << endl;
           break;
       }
     }
