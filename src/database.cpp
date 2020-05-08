@@ -14,10 +14,10 @@ database::~database(void) {
 
 
 // Autentica un usuario
-bool database::authenticate(string name, string psw, int& money) {
+bool database::authenticate(string name, string psw, float& money) {
   int i = 0;
-  while ((sheet_[i].name != name) && (i++ < sheet_.size()));
-
+  while ((sheet_[i].name != name) && (i < sheet_.size()))
+    i++;
   if (i < sheet_.size()) {
     money = sheet_[i].money;
     return true;
@@ -26,14 +26,14 @@ bool database::authenticate(string name, string psw, int& money) {
 }
 
 // Registra una nueva entrada (usuario) en la base de datos
-bool database::signIn(string name, string psw, int money) {
+bool database::signIn(string name, string psw, float money) {
   assert(!name.empty() && "Nombre de usuario no puede estar vacío!");
   assert(!psw.empty() && "Contraseña no puede estar vacía!");
   for (auto anUser : sheet_)
     if (anUser.name == name)
       return false; // Nombre de usuario no disponible
-
   line newUser(name, psw, money);
+  std::cout << "Money" << newUser.money << std::endl;
   sheet_.push_back(newUser);
   return true;
 }
@@ -43,7 +43,7 @@ int database::load(string file_name) {
   ifstream file(file_name, ios::in);
   assert(file.is_open() && "Error al conectar con la base de datos");
   string name,psw;
-  int money;
+  float money;
   file >> lines_;
   sheet_.resize(lines_);
   for (int i = 0; i < lines_; i++) {

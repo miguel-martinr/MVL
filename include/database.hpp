@@ -29,12 +29,12 @@ using namespace std;
 
 struct line {
   line(void): name(), psw(), money() {}
-  line (string name_, string psw_, int money_): name(name_), psw(psw_),
+  line (string name_, string psw_, float money_): name(name_), psw(psw_),
                                                 money(money_) {}
 
   string name;
   string psw;
-  int money;
+  float money;
 
 };
 
@@ -51,9 +51,10 @@ class database {
    int store(string file_name);
 
    // Autentica un usuario
-   bool authenticate(string name, string psw, int& money);
+   bool authenticate(string name, string psw, float& money);
+   
    // Registra una nueva entrada (usuario) en la base de datos
-   bool signIn(string name, string psw, int money);
+   bool signIn(string name, string psw, float money);
 
    vector<line>& get_sheet(void) { return sheet_; }
 

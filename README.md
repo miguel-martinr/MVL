@@ -40,3 +40,5 @@ Para registrar nuevo usuario:
 
 Notas:
   *No se aceptan nombres de usuario o contraseñas vacías
+  *Hay que verificar que los movimientos de wallet retornen true, de otro modo
+   no se garantiza que se haya realizado el movimiento. 
