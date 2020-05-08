@@ -14,16 +14,16 @@ int main(void) {
   string dataFile = "cfg/test/test1.psw";
   user::dataBase_ = database(dataFile);
 
-{  //Login
-  user userOne("miguel", "123");
+  //Login
+  user userOne("miguel", "1234");
   bool foo = userOne.login();
-}
 
-{ //SignIn
-  bool sign = user::dataBase_.signIn("Pepito", "pepitopsw", 5.32);
-}
 
-{ //Movimientos de wallet
+ //SignIn
+  bool sign = user::dataBase_.signIn("Raúl", "raulpsw", 13);
+
+
+ //Movimientos de wallet
   user userTwo("Pepito", "pepitopsw");
   userTwo.login();
   cout << "Monedero de Pepito: " << userTwo.coins() << endl;
@@ -33,7 +33,7 @@ int main(void) {
   cout << "Quitamos 3 monedas: " << userTwo.coins() << endl;
   userTwo.debit(10);
   cout << "Debitamos 10 monedas: " << userTwo.coins() << endl;
-}
+
   cout << "stop" << endl;
 
   return 0;

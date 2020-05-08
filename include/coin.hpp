@@ -2,7 +2,7 @@
 
 class coin{
   public:
-    coin(void){}
+    coin(void): coins(0) {}
     coin(float coins_): coins(coins_) {}
     ~coin(void){}
 
