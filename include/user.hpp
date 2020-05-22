@@ -39,7 +39,7 @@ class user {
 
    static database dataBase_; //Base de datos común (SOLO PARA DEMO)
    int login(void);
-
+   bool logged(void) { return logged_; }
    string getName(void) { return user_name_; }
    float coins(void) { return wallet_.get_coins(); } //Devuelve cantidad en monedero
    //void updateWallet(float value) { wallet_.update(value); }

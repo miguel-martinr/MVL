@@ -12,7 +12,7 @@ user::user(string user_name, string passwd) {
 //Autenticarse en el sistema
 int user::login(void) {
   if (logged_)
-    return logged_;
+    return 0;
   float money;
   int id = dataBase_.authenticate(user_name_, passwd_, money);
   if (id == 0)
